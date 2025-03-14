@@ -1,0 +1,14 @@
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\bin\Debug\net9.0\DrinksMenu.exe
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\bin\Debug\net9.0\DrinksMenu.deps.json
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\bin\Debug\net9.0\DrinksMenu.runtimeconfig.json
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\bin\Debug\net9.0\DrinksMenu.dll
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\bin\Debug\net9.0\DrinksMenu.pdb
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.AssemblyInfoInputs.cache
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.AssemblyInfo.cs
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.csproj.CoreCompileInputs.cache
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.dll
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\refint\DrinksMenu.dll
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.pdb
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.genruntimeconfig.cache
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\ref\DrinksMenu.dll
