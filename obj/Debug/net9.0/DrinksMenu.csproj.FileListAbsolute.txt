@@ -12,3 +12,4 @@ C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\refint\DrinksMenu.
 C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.pdb
 C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.genruntimeconfig.cache
 C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\ref\DrinksMenu.dll
+C:\Users\Sandwich\OneDrive\Coding\DrinksMenu\obj\Debug\net9.0\DrinksMenu.sourcelink.json

@@ -1,27 +1,23 @@
 ﻿using System.Net.Http.Headers;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using Controllers;
+
+using DrinksMenu;
+
+namespace Main;
 
 internal class Program
 {
-    private static async Task Main(string[] args)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+
+        //Console.Clear();
+        UserInterface userInterface = new();
+        userInterface.MainMenu();
 
 
 
-        using HttpClient client = new();
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json"));
-       // client.DefaultRequestHeaders.Add("User-Agent", "1");
-        
-        await ProcessRepositoriesAsync(client);
-
-        static async Task ProcessRepositoriesAsync(HttpClient client)
-        {
-            var json = await client.GetStringAsync(
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita");
-
-            Console.Write(json);
-        }
     }
 }
+
