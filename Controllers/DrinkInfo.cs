@@ -3,9 +3,9 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 
 namespace Controllers;
-internal class DrinkInfo
+internal class DrinkInformation
 {
-      private static async Task DrinksinCategory()
+      private static async Task DrinkInfo()
     {
         Console.WriteLine("JSON below!");
 
