@@ -1,5 +1,6 @@
 
 
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -38,10 +39,20 @@ public class CategoryRequest
             if (categoryData?.drinks != null)
             {
             foreach (var category in categoryData.drinks)
-            {
-                Console.WriteLine(category.strCategory);
+            {   
+                int dynLine = 24; //category.strCategory.Length;
+                string Line1 = new string('-',dynLine);
+                int dynEndChar = (dynLine - category.strCategory.Length - 4);
+                string EndLine = new string(' ',dynEndChar);
+                Console.WriteLine(Line1);
+                Console.WriteLine($"| {category.strCategory} {EndLine}|");
+                string Line2 = new string('-',dynLine);
             }
             }
+            int dynLine2 = 24; //category.strCategory.Length;
+            string FinalLine = new string('-',dynLine2);
+            Console.WriteLine(FinalLine);
+            
 
         }
         /*
