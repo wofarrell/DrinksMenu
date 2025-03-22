@@ -12,7 +12,7 @@ namespace Controllers;
 public class CategoryRequest
 {
 
-    public async Task DrinksinCategory()
+    public async Task DrinkCategories()
     {
 
         Console.WriteLine("JSON below!");

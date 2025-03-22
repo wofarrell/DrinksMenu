@@ -5,16 +5,13 @@ using System.Text.Json.Nodes;
 namespace Controllers;
 internal class DrinkInformation
 {
-      private static async Task DrinkInfo()
+      private static async Task DrinkInfo(int drinkId)
     {
         Console.WriteLine("JSON below!");
 
         string? jsonString = "";
-        string? drinkIdEntry = "";
-        
-        drinkIdEntry = Console.ReadLine();
-        bool drinkIdbool = int.TryParse(drinkIdEntry, out int drinkId);
 
+        
         
 
         using HttpClient client = new();
