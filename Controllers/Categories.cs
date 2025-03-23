@@ -38,21 +38,18 @@ public class CategoryRequest
 
             if (categoryData?.drinks != null)
             {
-            foreach (var category in categoryData.drinks)
-            {   
-                int dynLine = 32; //category.strCategory.Length;
-                string Line1 = new string('-',dynLine);
-                int dynEndChar = dynLine - category.strCategory.Length - 4;
-                string EndLine = new string(' ',dynEndChar);
-                Console.WriteLine(Line1);
-                Console.WriteLine($"| {category.strCategory} {EndLine}|");
-                string Line2 = new string('-',dynLine);
-            }
-            
+                foreach (var category in categoryData.drinks)
+                {
+                    int dynLine = 32; //category.strCategory.Length;
+                    string Line1 = new string('-', dynLine);
+                    int dynEndChar = dynLine - category.strCategory.Length - 4;
+                    string EndLine = new string(' ', dynEndChar);
+                    Console.WriteLine(Line1);
+                    Console.WriteLine($"| {category.strCategory} {EndLine}|");
+                    string Line2 = new string('-', dynLine);
+                }
             }
             Console.WriteLine(new string('-', 32));
-            
-
         }
         /*
                 async Task ProcessRepositoriesAsync(HttpClient client)

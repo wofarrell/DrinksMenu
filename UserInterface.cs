@@ -11,6 +11,7 @@ internal class UserInterface
    Controllers.DrinkInformation singleDrinkController = new();
    Controllers.CategoryRequest drinkCategoryController = new();
    Controllers.Drinks drinkTypeController = new();
+   Controllers.DrinkInformation drinkInfoController = new();
 
 
 
@@ -78,10 +79,13 @@ internal class UserInterface
 
       } while (categorySelectionBool == false);
 
-      /*
+
       //Gather int for choosing specific drink by Id
+
+      Console.WriteLine("Please make a selection using the Drink Ids above");
+
       string? drinkSelectionStr = "";
-      int drinkSelectionInt = 0;
+      int drinkId = 0;
       bool drinkSelectionBool = false;
       do
       {
@@ -89,58 +93,66 @@ internal class UserInterface
          drinkSelectionStr = Console.ReadLine();
          if (drinkSelectionStr != null)
          {
-            VariableEntry = int.TryParse(drinkSelectionStr, out drinkSelectionInt);
-            Console.WriteLine($"Stack #{drinkSelectionInt} loaded");
 
+            if (drinkSelectionStr?.Trim().ToLower() == "exit")
+            {
+               break; // Exit loop immediately
+            }
 
+            VariableEntry = int.TryParse(drinkSelectionStr, out drinkId);
+            if (VariableEntry == true)
+            {
+               try
+               {
+                  await drinkIdRequest(drinkId);
+                  drinkSelectionBool = true;
+               }
+               catch (ArgumentException) // Catches "no data found" cases
+               {
+                  Console.WriteLine("\nPlease enter a valid category.");
+                  categorySelectionBool = false; // Retry input
+               }
+               catch (JsonException) // Catches JSON deserialization errors
+               {
+                  Console.WriteLine("\nInvalid response format from API. Please try again.");
+                  categorySelectionBool = false; // Retry input
+               }
+               catch (HttpRequestException) // Catches API connection issues
+               {
+                  Console.WriteLine("\nFailed to connect to API. Please check your internet and try again.");
+                  categorySelectionBool = false; // Retry input
+               }
+               catch (Exception ex) // Catches unexpected errors
+               {
+                  Console.WriteLine($"\nAn unexpected error occurred: {ex.Message}");
+                  categorySelectionBool = false; // Retry input
+               }
 
-            drinkSelectionBool = true;
-         }
-         if (drinkSelectionStr == "exit")
-         {
-            break;
-         }
-         if (!VariableEntry)
-         {
-            Console.WriteLine("\nplease enter a valid stack id");
+            }
+            else
+            {
+               Console.WriteLine("\nPlease enter a valid drink Id.");
+            }
          }
       } while (drinkSelectionBool == false);
 
       //Shows the drinks by category in the API
-      await drinksListRequest(drinkCat);
-
-
-      Console.WriteLine("Please make a selection using the drink Ids above");
-
-
-      //Shows the drink information and instructions by Id
-      string? drinkIdEntry = "";
-
-      drinkIdEntry = Console.ReadLine();
-      bool drinkIdbool = int.TryParse(drinkIdEntry, out int drinkId);
-*/
       Console.WriteLine("sent back to mainmenu exit");
-
-
-
    }
 
    private async Task categoryRequest()
    {
-
       await drinkCategoryController.DrinkCategories();
-
-
    }
 
    private async Task drinksListRequest(string drinkCat)
    {
-
       await drinkTypeController.DrinksinCategory(drinkCat);
-
-
    }
 
-
+   private async Task drinkIdRequest(int drinkId)
+   {
+      await drinkInfoController.DrinkInfo(drinkId);
+   }
 
 }

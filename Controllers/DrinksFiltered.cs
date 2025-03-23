@@ -51,15 +51,7 @@ internal class Drinks
             Console.WriteLine(new string('-', 32));
         }
 
-
-
-
-
     }
 
-    public void DrinkInstructions()
-    {
-
-    }
 
 }
