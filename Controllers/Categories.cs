@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Models.CategoryNames;
-using Models.DrinkArray;
+
 
 namespace Controllers;
 public class CategoryRequest
@@ -40,18 +40,17 @@ public class CategoryRequest
             {
             foreach (var category in categoryData.drinks)
             {   
-                int dynLine = 24; //category.strCategory.Length;
+                int dynLine = 32; //category.strCategory.Length;
                 string Line1 = new string('-',dynLine);
-                int dynEndChar = (dynLine - category.strCategory.Length - 4);
+                int dynEndChar = dynLine - category.strCategory.Length - 4;
                 string EndLine = new string(' ',dynEndChar);
                 Console.WriteLine(Line1);
                 Console.WriteLine($"| {category.strCategory} {EndLine}|");
                 string Line2 = new string('-',dynLine);
             }
+            
             }
-            int dynLine2 = 24; //category.strCategory.Length;
-            string FinalLine = new string('-',dynLine2);
-            Console.WriteLine(FinalLine);
+            Console.WriteLine(new string('-', 32));
             
 
         }

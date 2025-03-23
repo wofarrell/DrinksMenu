@@ -2,6 +2,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
 using Controllers;
+using System.Text.Json;
 
 namespace DrinksMenu;
 
@@ -26,29 +27,49 @@ internal class UserInterface
 
       //Gather string for using to search drinks
 
-      string drinkCat = "";
+
 
       string? categorySelectionStr = "";
 
       bool categorySelectionBool = false;
       do
       {
-         
+
          categorySelectionStr = Console.ReadLine();
+
+         if (categorySelectionStr?.Trim().ToLower() == "exit")
+         {
+            break; // Exit loop immediately
+         }
+
          if (categorySelectionStr != null)
          {
             try
             {
-                drinkCat = categorySelectionStr;
-               await drinksListRequest(drinkCat);
+               await drinksListRequest(categorySelectionStr);
                categorySelectionBool = true;
             }
-            catch (ArgumentException e)
+            catch (ArgumentException) // Catches "no data found" cases
             {
-               Console.WriteLine("\nplease enter a valid category");
-               categorySelectionBool = false;
+               Console.WriteLine("\nPlease enter a valid category.");
+               categorySelectionBool = false; // Retry input
             }
-            
+            catch (JsonException) // Catches JSON deserialization errors
+            {
+               Console.WriteLine("\nInvalid response format from API. Please try again.");
+               categorySelectionBool = false; // Retry input
+            }
+            catch (HttpRequestException) // Catches API connection issues
+            {
+               Console.WriteLine("\nFailed to connect to API. Please check your internet and try again.");
+               categorySelectionBool = false; // Retry input
+            }
+            catch (Exception ex) // Catches unexpected errors
+            {
+               Console.WriteLine($"\nAn unexpected error occurred: {ex.Message}");
+               categorySelectionBool = false; // Retry input
+            }
+
          }
          if (categorySelectionStr == "exit")
          {
@@ -57,7 +78,7 @@ internal class UserInterface
 
       } while (categorySelectionBool == false);
 
-
+      /*
       //Gather int for choosing specific drink by Id
       string? drinkSelectionStr = "";
       int drinkSelectionInt = 0;
@@ -97,7 +118,7 @@ internal class UserInterface
 
       drinkIdEntry = Console.ReadLine();
       bool drinkIdbool = int.TryParse(drinkIdEntry, out int drinkId);
-
+*/
       Console.WriteLine("sent back to mainmenu exit");
 
 
