@@ -19,6 +19,12 @@ internal class UserInterface
 
    internal async Task MainMenu()
    {
+
+
+
+
+
+      
       Console.WriteLine("User Interface main menu");
 
       //Shows the categories of Drinks in the API
@@ -28,14 +34,11 @@ internal class UserInterface
 
       //Gather string for using to search drinks
 
-
-
       string? categorySelectionStr = "";
 
       bool categorySelectionBool = false;
       do
       {
-
          categorySelectionStr = Console.ReadLine();
 
          if (categorySelectionStr?.Trim().ToLower() == "exit")
@@ -82,7 +85,7 @@ internal class UserInterface
 
       //Gather int for choosing specific drink by Id
 
-      Console.WriteLine("Please make a selection using the Drink Ids above");
+      Console.WriteLine("Please make a selection using the Drink Ids above or type 'exit'");
 
       string? drinkSelectionStr = "";
       int drinkId = 0;

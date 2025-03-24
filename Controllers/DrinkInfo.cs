@@ -28,12 +28,10 @@ internal class DrinkInformation
 
             JsonNode apiRequestNode = JsonNode.Parse(jsonString)!;
 
-
             if (apiRequestNode == null || apiRequestNode["drinks"] == null)
             {
                 throw new ArgumentException("No drink found with that drinkId.\nEnter a valid drinkId");
             }
-
 
             JsonNode? drinkNode = apiRequestNode["drinks"]?[0]; // Get the first drink
 
@@ -42,6 +40,16 @@ internal class DrinkInformation
                 throw new ArgumentException("No drink found with that drinkId.\nEnter a valid drinkId");
             }
 
+            // under JsonNode drinkNode, a sample of the structure is as below:
+            // You can pull the value through a JsonNode by using brackets and the key name, such as drinkNode[strDrink]. that pulls the name. 
+            // PrintIfNotNull() method below pulls that value for the key, then only writes if isn't null.
+            /*
+                {
+                    "idDrink": "14378",
+                    "strDrink": "Lunch Box",
+                    "strDrinkAlternate": null
+                } 
+            */
 
             Console.WriteLine(new string('-', 32));
             Console.WriteLine(new string('=', 32));
@@ -74,26 +82,28 @@ internal class DrinkInformation
                 }
             }
 
+            Console.WriteLine(new string('=', 32));
+
+            Console.WriteLine("Measurements:");
+            Console.WriteLine(new string('-', 32));
+
+            for (int i = 1; i <= 15; i++)
+            {
+                string measureKey = $"strMeasure{i}";
+                if (drinkNode[measureKey] != null)
+                {
+                    Console.WriteLine($"- {drinkNode[measureKey]!.ToString()}");
+                }
+            }
+
             //var options = new JsonSerializerOptions { WriteIndented = true, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
             //Console.WriteLine(apiRequestNode!.ToJsonString(options));
-
             //JsonNode drinksNode = apiRequestNode!["drinks"]!;
-
             Console.WriteLine(new string('-', 32));
         }
-
     }
 
-    // under JsonNode drinkNode, a sample of the structure is as below:
-    // You can pull the value through a JsonNode by using brackets and the key name, such as drinkNode[strDrink]. that pulls the name. 
-    // method below pulls that value for the key, then only writes if isn't null.
-    /*
-        {
-            "idDrink": "14378",
-            "strDrink": "Lunch Box",
-            "strDrinkAlternate": null
-        } 
-    */
+
 
     void PrintIfNotNull(JsonNode node, string jsonKeyValue, string displayName)
     {
